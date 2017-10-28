@@ -1,6 +1,6 @@
 function [res] = getMaxFFTPixel(imFFT)
     Im = abs(imFFT);
-    x=0; y=0;
+    x=1; y=1;
     maxValue = 0.0;
     [N, M] = size(Im);
     for i=1:N
