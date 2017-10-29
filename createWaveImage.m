@@ -1,4 +1,4 @@
-function[Result] = createWaveImage(wave,imageSize)
+function [Result] = createWaveImage(wave,imageSize)
 tempx = 1:imageSize(1);
 tempx = repmat(tempx,[imageSize(2),1]);
 tempy = 1:imageSize(2);
