@@ -1,5 +1,6 @@
 function [ waves ] = GetWaves( Image,filter )
-fftImage = fft(Image);
+fImage = image.*filter
+fftImage = fft(fImage);
 fftFilter = fft(filter);
 waves = [];
 maxAlpha = -1;
