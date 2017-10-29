@@ -12,12 +12,14 @@ function [Img] = Reconstruction(Imagename, Q)
             for k=1:lenght(A)
                 B=A{1};
                 [Result] = createWaveImage(B,Siz);
-                FIl=FIlter(((x-m):(x-m+Size(1)))((y-n):(y-n+Size(2))));
-                r=FIL.*Result;
-                res=res+r;
+                %FIl=FIlter(((x-m):(x-m+Size(1)))((y-n):(y-n+Size(2))));
+                %r=FIL.*Result;
+                res=res+Result;
             end
         end
     end
+    Fil=Filter.*Filter;
+    res=res.*Fil;
     S=rgb2gray(im2double(imread(Imagename)));
     q=S-res;
     b=(sum(sum(S.*S))-sum(sum(q.*q)))/(sum(sum(res.*res)));
