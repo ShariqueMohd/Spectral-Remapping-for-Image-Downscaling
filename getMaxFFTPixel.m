@@ -5,8 +5,8 @@ function [res] = getMaxFFTPixel(imFFT)
     [N, M] = size(Im);
     for i=1:N
         for j=1:M
-            if maxValue < Im(i,j)
-                maxValue = Im(i,j);
+            if maxValue < abs(Im(i,j))
+                maxValue = abs(Im(i,j));
                 x=i; y=j;
             end
         end
