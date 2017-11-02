@@ -1,15 +1,16 @@
-function [res] = getMaxFFTPixel(imFFT)
+function [res] = getMaxFFTPixel(imFFT,R)
     Im = abs(imFFT);
-    x=1; y=1;
-    maxValue = 0.0;
     [N, M] = size(Im);
-    for i=1:N
-        for j=1:M
-            if maxValue < abs(Im(i,j))
-                maxValue = abs(Im(i,j));
-                x=i; y=j;
-            end
-        end
+    vLimit =int16(N/(2*R));
+    hLimit = int16(M/(2*R));
+    Im(1:(vLimit),1:(hLimit))=0;
+    Im((end-vLimit+1):end,1:(hLimit))=0;
+    Im((end-vLimit+1):end,(end-hLimit+1):end)=0;
+    Im(1:(vLimit),(end-hLimit+1):end)=0;
+    [M,I] = max(Im);
+    [M1,I1] = max(M);
+    res = [I(I1) I1];
+    if M1==0
+        res = -1;
     end
-    res = [x y];
 end

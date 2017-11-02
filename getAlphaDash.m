@@ -7,13 +7,13 @@ function [alphaDash] = getAlphaDash(FGIm,a,b,QVal)
     for i=-1:1
         for j=-1:1
             
-            x = int16(-2*(a*m) +i*m);
-            y = int16(-2*(b*n) +j*n);
+            x =-2*a +i*m;
+            y = -2*b +j*n;
             x = mod(x,m);
             y = mod(y,n);
             x = x+1;
             y = y+1;
-            Temp = Temp + FGIm(x,y);
+            Temp = Temp + abs(FGIm(x,y));
         end
     end
     % needed to add g(0,0), added FGIm(1,1)
