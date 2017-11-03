@@ -6,7 +6,7 @@ Size  =size(image);
 waves = [];
 maxAlpha = -1;
 currentMag = sum(sum(fftImage.*conj(fftImage)));
-imshow(abs(fftImage));
+% imshow(abs(fftImage));
 while size(waves)<10
     maxLocation = getMaxFFTPixel(fftImage,R);
     if(maxLocation == -1)
@@ -40,9 +40,9 @@ while size(waves)<10
 %     imshow(waveImage);
 %     fwaveImage = windowFilter.*waveImage;
     fftWaveImage = fftWaveImage*exp(2i*pi*wave(4));
-    imshow(abs(fftWaveImage));
+%     imshow(abs(fftWaveImage));
     fftImage = fftImage-fftWaveImage;
-    imshow(abs(fftImage));
+%     imshow(abs(fftImage));
     Mag = sum(sum(fftImage.*conj(fftImage)));
     if Mag>=currentMag
         break;
